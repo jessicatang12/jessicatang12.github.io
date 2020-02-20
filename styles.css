@@ -7,3 +7,11 @@ header {
     display: flex;
     flex-flow: row wrap;
 }
+
+header img{
+    display: block;
+}
+
+h1{
+    flex: 5;
+}
