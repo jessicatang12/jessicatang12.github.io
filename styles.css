@@ -1,3 +1,24 @@
+@media screen (max-width: 1000px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+    }
+    .one {
+        display: flex;
+        flex-wrap: row;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-bottom: 15px;
+        max-width: inherit;
+    }
+    .two {
+        display: flex;
+        max-width: inherit;
+    }
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -113,14 +134,4 @@ html, body {
     font-family: "Open Sans", sans-serif;
     font-size: 0.75rem;
     padding-bottom: 5px;
-}
-
-@media only screen (max-width: 1000px) {
-     .one {
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin-bottom: 15px;
-        max-width: 960px;
-    }
 }
