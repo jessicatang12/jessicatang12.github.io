@@ -6,29 +6,35 @@ html, body {
 
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    flex-basis: 0;
+    justify-content: space-between;
+    flex: 1 0 auto;
     background-color: #78B3AB;
     color: #ffffff;
     margin-bottom: 15px;
     max-width: 100%;
+    max-height: 300px;
 }
 
 .myname {
     display: flex;
-    justify-content: flex-start;
     font-family: "ZCOOL QingKe HuangYou", serif;
     font-style: bold;
-    font-size: 1.5rem;
-    margin: 10px;
+    font-size: 1.25rem;
+    text-shadow: 0 2px 0 black;
+    padding: 20px;
 }
 
 .testudo {
     display: flex;
-    justify-content: center;
-    flex-basis: 0.5rem;
-    margin: 10px;
+    max-width: 174px;
+    max-height: 100px;
+    padding: 20px;
+}
+
+.testudo img {
+    max-width: 174px;
 }
 
 .wrapper {
@@ -39,23 +45,33 @@ html, body {
     max-width: 1000px;
 }
 
+/* Container section based on notes/tips given in class */
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     flex-wrap: wrap;
+    flex: 1 0 auto;
+    justify-content: center;
     max-width: 960px;
 }
 
 .one {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    padding: 10px;
+    flex-direction: column;
+    max-width: 174px;
+    padding-right: 15px;
 }
 
-.snoopy img {
-    border: #FFFAF7;
+.snoopy {
+    max-width: inherit;
+    margin-bottom: 5px;
+}
+
+.snoopy img{
+    border: 1px solid black;
     border-radius: 4px;
+    max-width: inherit;
 }
 
 .intro { 
@@ -63,12 +79,17 @@ html, body {
     background-color: #FFFAF7;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
+    border-radius: 4px;
 }
 
 .two {
     display: flex;
+    flex-direction: column;
     background-color: #FFFAF7;
-    margin: 20px;
+    width: 640px;
+    border: 1px dashed black;
+    border-radius: 4px;
+    padding-left: 15px;
 }
 
 .role {
@@ -91,4 +112,5 @@ html, body {
 .responsibilities {
     font-family: "Open Sans", sans-serif;
     font-size: 0.75rem;
+    padding-bottom: 5px;
 }
