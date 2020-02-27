@@ -14,23 +14,20 @@ html, body {
     color: #ffffff;
     margin-bottom: 15px;
     max-width: 100%;
-
 }
 
 .myname {
-    display: flex;
     font-family: "ZCOOL QingKe HuangYou", serif;
     font-style: bold;
     font-size: 1.25rem;
     text-shadow: 0 2px 0 black;
-    padding: 20px;
+    margin: 15px;
 }
 
 .testudo {
-    display: flex;
     max-width: 174px;
     max-height: 100px;
-    padding: 20px;
+    margin: 15px;
 }
 
 .testudo img {
@@ -42,6 +39,7 @@ html, body {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
 /* Container section based on notes/tips given in class */
@@ -49,13 +47,12 @@ html, body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     justify-content: center;
     max-width: 960px;
 }
 
 .one {
-    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
@@ -119,16 +116,11 @@ html, body {
 }
 
 @media only screen (max-width: 1000px) {
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .one {
-        display: flex;
+     .one {
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: space-evenly;
         margin-bottom: 15px;
+        max-width: 960px;
     }
 }
