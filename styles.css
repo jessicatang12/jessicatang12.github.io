@@ -1,21 +1,13 @@
-@media screen (max-width: 1000px) {
+@media only screen (max-width: 1000px) {
     .container {
         display: flex;
-        align-items: center;
         justify-content: center;
-        max-width: 100%;
     }
     .one {
         display: flex;
-        flex-wrap: row;
         flex-direction: row;
         justify-content: space-evenly;
         margin-bottom: 15px;
-        max-width: inherit;
-    }
-    .two {
-        display: flex;
-        max-width: inherit;
     }
 }
 
@@ -64,6 +56,7 @@ html, body {
 }
 
 /* Container section based on notes/tips given in class */
+
 .container {
     display: flex;
     flex-direction: row;
