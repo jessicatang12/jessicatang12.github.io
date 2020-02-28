@@ -1,13 +1,19 @@
-@media only screen (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
     .container {
         display: flex;
         justify-content: center;
     }
     .one {
         display: flex;
+        flex-wrap: flex;
         flex-direction: row;
+        flex: 1 1 auto;
         justify-content: space-evenly;
         margin-bottom: 15px;
+        max-width: 960px;
+    }
+    .two {
+        max-width: 960px;
     }
 }
 
