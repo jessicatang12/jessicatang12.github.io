@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Test JSON page</title>
+  <title>Jessica Tang's List of Countries</title>
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 
 <body>
   <div class="container">
     <div class="wrapper">
-      <div class="header">Test JSON page</div>
+      <div class="header">Jessica Tang's List of Countries</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
       <button class="activate">Click me to replace list
         entries</button>
@@ -266,6 +266,18 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+
+    const content = document.querySelector(".content");
+    var ordered = document.createElement("li");
+    
+    
+    const button = document.querySelector(".activate");
+    function randomcountry(countries) {
+      return Math.random(countries);
+    }
+
+    button.onClick = randomcountry;
+
   </script>
 </body>
 
