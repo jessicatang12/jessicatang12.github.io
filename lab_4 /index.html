@@ -28,13 +28,29 @@
       function clickMe() {
         const content = document.querySelector(".content");
         content.innerHTML = "Hello world";
-
         let fullname = "JessicaTang";
         let namelength = fullname.length;
+        let thirdchar = fullname[2];
+        let lastthree = fullname.slice(8);
+
+        var p1 = document.createElement("p");
+        var p2 = document.createElement("p");
+        var node1 = document.createTextNode("My name has " + namelength + " characters.");
+        var node2 = document.createTextNode("The third character in my name is "+thirdchar.toUpperCase()+".");
+
+        p1.appendChild(node1);
+        p2.appendChild(node2);
+        content.appendChild(p1);
+        content.appendChild(p2);
+        p2.innerHTML += "<br />" + lastthree;
+
+        let firstname = fullname.slice(0,7);
+        let lastname = fullname.slice(7);
+        let total = firstname.length + lastname.length;
 
         const header = document.querySelector(".header");
         header.innerHTML = "Jessica Tang's Lab 4";
-        header.textContent += " " + namelength;
+        header.textContent += " " + total;
 
       }
     </script>
