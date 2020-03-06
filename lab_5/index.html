@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <div class="wrapper">
-      <div class="header">Jessica Tang's List of Countries</div>
+      <div class="header">Test JSON Page</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
       <button class="activate">Click me to replace list
         entries</button>
@@ -267,8 +267,12 @@
     ]
     console.log("List of countries in the world", countries);
 
+    const header = document.querySelector(".header");
+    header.innerHTML = "Jessica's List of Countries";
+
     const content = document.querySelector(".content");
-    var ordered = document.createElement("li");
+    var orderedlist = document.createElement("ol");
+    orderedlist.className = "countries";
     
     
     const button = document.querySelector(".activate");
