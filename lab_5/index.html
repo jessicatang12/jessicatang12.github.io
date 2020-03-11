@@ -274,18 +274,16 @@
     var orderedlist = document.createElement("ol");
     orderedlist.className = "countries";
 
-    var rand = [];
-    countries.forEach (country => {
-      rand.push(country.name);
-    });
-
     function randomcountries() {
       var rand = [];
       var total = [];
       var notincluded = [];
-      while (rand.length < 25) {
+      for (i = 0; i < 25; i++) {
         var randomnum = Math.floor(Math.random()*242);
-        if (!(rand.includes(randomnum))) {
+        if (rand.includes(randomnum)) {
+          i--;
+        }
+        else {
           rand.push(randomnum);
         }
       for (let n = 0; n < 243; n++) {
@@ -296,22 +294,25 @@
           notincluded.push(num);
         }
       });
+    }
 
       let items = [];
       for (l = 0; l < 25; l++) {
         items.push(countries[rand[l]].code.bold()+" "+countries[rand[l]].name);
+        let list = document.createElement("li");
+        list.innerHTML = items[l];
+        orderedlist.appendChild(list);
       }
 
-      list = document.createElement("li");
-      list.innerHTML = items[l];
-      orderedlist.appendChild(list);
-      content.innerHTML = " ";
-      content.appendChild(orderedlist);
-      notincluded.forEach(not => {
-        console.log(countries[not]);
+      notincluded.forEach( y => {
+        console.log(countries[y]);
       });
+
     }
-  }
+    
+    content.innerHTML = " ";
+    content.appendChild(orderedlist);
+
 
   </script>
 </body>
