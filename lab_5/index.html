@@ -11,7 +11,7 @@
     <div class="wrapper">
       <div class="header">Test JSON Page</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button class="activate">Click me to replace list
+      <button class="activate" onclick="randomcountries();">Click me to replace list
         entries</button>
       <div class="content">
       </div>
@@ -274,19 +274,28 @@
     var orderedlist = document.createElement("ol");
     orderedlist.className = "countries";
 
+    var temp = [];
+    countries.forEach (country => {
+      temp.push(country.name);
+    });
+
     function randomcountries() {
-      //get array of random numbers
       var rand = [];
+      var total = [];
       var notincluded = [];
-      for (let n = 0; n < 25; n++) {
-        var number = Math.floor(Math.random() * 242);
-        if (rand.includes(number)) {
-         n--;
-       }
-        else {
-          randArr.push(number);
+      while (rand.length < 25) {
+        var randomnum = Math.floor(Math.random()*242);
+        if (!(rand.includes(randomnum))) {
+          rand.push(randomnum);
         }
+      for (let n = 0; n < countries.length; n++) {
+        total.push(n);
       }
+      total.forEach(num => {
+        if (!(rand.includes(num))) {
+          notincluded.push(num);
+        }
+      });
 
       //random 25 countries list, append to ol
       var the25 = [];
@@ -296,7 +305,12 @@
       var final = document.createElement("li");
       final.innerHTML = the25[i];
       orderedlist.appendChild(final);
+
+      notincluded.forEach(not => {
+        console.log(countries[not]);
+      });
     }
+  }
 
   </script>
 </body>
