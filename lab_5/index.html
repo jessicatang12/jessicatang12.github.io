@@ -273,14 +273,30 @@
     const content = document.querySelector(".content");
     var orderedlist = document.createElement("ol");
     orderedlist.className = "countries";
-    
-    
-    const button = document.querySelector(".activate");
-    function randomcountry(countries) {
-      return Math.random(countries);
-    }
 
-    button.onClick = randomcountry;
+    function randomcountries() {
+      //get array of random numbers
+      var rand = [];
+      var notincluded = [];
+      for (let n = 0; n < 25; n++) {
+        var number = Math.floor(Math.random() * 242);
+        if (rand.includes(number)) {
+         n--;
+       }
+        else {
+          randArr.push(number);
+        }
+      }
+
+      //random 25 countries list, append to ol
+      var the25 = [];
+      for (let i = 0; i < 25; i++) {
+        the25.push(countries[rand[i]].code.bold()+" "+countries[rand[i]].name);
+      }
+      var final = document.createElement("li");
+      final.innerHTML = the25[i];
+      orderedlist.appendChild(final);
+    }
 
   </script>
 </body>
