@@ -303,17 +303,16 @@
         list.innerHTML = items[l];
         orderedlist.appendChild(list);
       }
-
+      
+      content.innerHTML = "";
+      content.appendChild(orderedlist);
+    
       notincluded.forEach( y => {
         console.log(countries[y]);
       });
-
     }
+
     
-    content.innerHTML = " ";
-    content.appendChild(orderedlist);
-
-
   </script>
 </body>
 
