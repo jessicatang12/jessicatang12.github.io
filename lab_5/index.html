@@ -275,44 +275,46 @@
     orderedlist.className = "countries";
 
     function randomcountries() {
-      var rand = [];
-      var total = [];
-      var notincluded = [];
-      for (i = 0; i < 25; i++) {
-        var randomnum = Math.floor(Math.random()*242);
-        if (rand.includes(randomnum)) {
+      orderedlist.innerHTML = "";
+      content.appendChild(orderedlist);
+
+      var randomnumbers = [];
+      for (let i = 0; i < 25; i++) {
+        var randomize = Math.floor(Math.random() * 242);
+        if (randomnumbers.includes(randomize)) {
           i--;
         }
         else {
-          rand.push(randomnum);
+          randomnumbers.push(randomize);
         }
-      for (let n = 0; n < 243; n++) {
-        total.push(n);
       }
-      total.forEach(num => {
-        if (!(rand.includes(num))) {
-          notincluded.push(num);
-        }
-      });
+    
+    var rand = [];
+    for (let l = 0; l < 25; l++) {
+      rand.push(countries[randomnumbers[l]].code.bold()+" "+countries[randomnumbers[l]].name);
     }
 
-      let items = [];
-      for (l = 0; l < 25; l++) {
-        items.push(countries[rand[l]].code.bold()+" "+countries[rand[l]].name);
-        let list = document.createElement("li");
-        list.innerHTML = items[l];
-        orderedlist.appendChild(list);
+    var total = [];
+    var notincluded = [];
+    for (let n = 0; n < 243; n++) {
+        total.push(n);
       }
-      
-      content.innerHTML = "";
-      content.appendChild(orderedlist);
-    
-      notincluded.forEach( y => {
+      total.forEach(temp => {
+        if (!(rand.includes(temp))) {
+          notincluded.push(temp);
+        }
+      });
+
+    rand.forEach(num => {
+      let list = document.createElement("li");
+      list.innerHTML = num;
+      orderedlist.appendChild(list);
+    });
+
+    notincluded.forEach( y => {
         console.log(countries[y]);
       });
     }
-
-    
   </script>
 </body>
 
