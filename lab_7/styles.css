@@ -101,3 +101,8 @@ h3 {
   position: relative;
   top: 1px;
 }
+
+#mapid { 
+  width: 480px;
+  height: 100%;
+}
