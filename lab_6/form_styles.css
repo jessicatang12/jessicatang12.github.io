@@ -1,15 +1,30 @@
-form {
-
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
-
+  
 label {
-
+    display: block;
+    margin: 8px 0;
 }
 
-input, textarea {
-    
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-
-ul {
-
+  
+textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+  
+.button {
+    padding: 10px;
+}
+  
+button {
+    /* This extra margin represent roughly the same space as the space
+       between the labels and their text fields */
+    margin-left: .5em;
 }
