@@ -39,6 +39,12 @@
           zoomOffset: -1,
           accessToken: 'pk.eyJ1IjoiamVzc2ljYXRhbmcxMiIsImEiOiJjazhrd2s3anYwNmluM2dud3YzemF0bGFpIn0.Qi5hQ-8DTp36n7vvugORNg'
         }).addTo(mymap);
+
+        const mark1 = L.marker([38.9881, -76.9416]).addTo(mymap);
+        const str1 = "Hornbake Library";
+        mark1.bindPopup(str1).openPopup();
+
+        /*(https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json)*/
     </script>
   </body>
 </html>
