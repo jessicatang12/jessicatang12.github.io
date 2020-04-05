@@ -44,7 +44,23 @@
         const str1 = "Hornbake Library";
         mark1.bindPopup(str1).openPopup();
 
-        /*(https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json)*/
+        let pgcountyfood = [
+          [-76.948226, 38.984828],
+          [-76.937067, 38.980705],
+          [-76.932153, 38.994868]
+        ];
+
+        const mark2 = L.marker([pgcountyfood[0][1],pgcountyfood[0][0]]).addTo(mymap);
+        const str2 = "UMCP - 251 North";
+        mark2.bindPopup(str2);
+
+        const mark3 = L.marker([pgcountyfood[1][1],pgcountyfood[1][0]]).addTo(mymap);
+        const str3 = "Ledo Restaurant";
+        mark3.bindPopup(str3);
+
+        const mark4 = L.marker([pgcountyfood[2][1],pgcountyfood[2][0]]).addTo(mymap);
+        const str4 = "Kangnam BBQ";
+        mark4.bindPopup(str4);
     </script>
   </body>
 </html>
