@@ -22,13 +22,30 @@
         .then((data) => { // this is an explicit return. If I want my information to go further, I'll need to use the "return" keyword before the brackets close
           console.log(data);
 
-          // return data; // <- this will pass the data to the next "then" statement when I'm ready.
-          return data
-        });
+          // from lab 8 walkthrough video
+          const empty = data.filter((f) => f.geocoded_column_1);
+          const selected = empty.map((m) => ({
+            category: m.category,
+            name: m.name,
+            coordinates: m.geocoded_column_1.coordinates,
+          }));
 
-        .then((data) => {
-
+          return selected;
         })
+        .then((data) => {
+          return data.reduce((temp, currentValue) => {
+            if (!temp[currentValue.category]) {
+              temp[currentValue.category] = [];
+            }
+            temp[currentValue.category].push(currentValue);
+            return temp;
+          }, {});
+        })
+        .then((data) => {
+          
+        })
+
+        
     </script>
   </body>
 </html>
