@@ -3,7 +3,7 @@
   <head>
     <title>Charts Lab</title>
     <link rel="stylesheet" type="text/css" href="./styles.css" />
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </head>
 
   <body>
@@ -11,7 +11,7 @@
       <div class="wrapper">
         <div class="header">Frontend Libraries: Charts Lab</div>
         <div class="content">
-          When your lab is done, this should be replaced with a useful chart full of food data.
+          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         </div>
         <div class="footer">Let's eat out in the future!</div>
       </div>
@@ -22,7 +22,7 @@
         .then((data) => { // this is an explicit return. If I want my information to go further, I'll need to use the "return" keyword before the brackets close
           console.log(data);
 
-          // from lab 8 walkthrough video
+          // start source from lab 8 walkthrough video
           const empty = data.filter((f) => f.geocoded_column_1);
           const selected = empty.map((m) => ({
             category: m.category,
@@ -33,19 +33,45 @@
           return selected;
         })
         .then((data) => {
-          return data.reduce((temp, currentValue) => {
-            if (!temp[currentValue.category]) {
-              temp[currentValue.category] = [];
+          console.log(data);
+          return data.reduce((m, n) => {
+            if (!m[n.category]) {
+              m[n.category] = [];
             }
-            temp[currentValue.category].push(currentValue);
-            return temp;
+            m[n.category].push(n);
+            return m;
           }, {});
-        })
+        }
         .then((data) => {
-          
+          console.log(data);
         })
-
-        
+        /* end*/
+        /* chart code canvasJS */
+        .then((data) => {
+          console.log(data);
+          window.onload = function () {
+            const chart = new CanvasJS.Chart("chartContainer", {
+              animationEnabled: true,
+              title: {
+                text: "Restaurants"
+              },
+              axisX: {
+                interval: 1
+              },
+              axisY: {
+                interval: 10,
+                scaleBreaks: {
+                  autocalculate: true
+                }
+              },
+              data: [{
+                type: "bar",
+                dataPoints: data
+              }]
+            });
+            chart.render();
+          }
+        })
     </script>
   </body>
 </html>
