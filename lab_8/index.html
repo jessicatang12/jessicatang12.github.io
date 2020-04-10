@@ -3,7 +3,6 @@
   <head>
     <title>Charts Lab</title>
     <link rel="stylesheet" type="text/css" href="./styles.css" />
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </head>
 
   <body>
@@ -14,6 +13,7 @@
           <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         </div>
         <div class="footer">Let's eat out in the future!</div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
       </div>
     </div>
     <script>
@@ -41,35 +41,42 @@
             m[n.category].push(n);
             return m;
           }, {});
-        }
+        })
         .then((data) => {
           console.log(data);
+          return Object.entries(data).map((m, n) => {
+            console.log(m);
+            return {
+              y: m[1].length,
+              label: m[0],
+            };
+          });
         })
         /* end*/
         /* chart code canvasJS */
         .then((data) => {
           console.log(data);
           window.onload = function () {
-            const chart = new CanvasJS.Chart("chartContainer", {
-              animationEnabled: true,
-              title: {
-                text: "Restaurants"
-              },
-              axisX: {
-                interval: 1
-              },
-              axisY: {
-                interval: 10,
-                scaleBreaks: {
-                  autocalculate: true
-                }
-              },
-              data: [{
-                type: "bar",
-                dataPoints: data
-              }]
-            });
-            chart.render();
+          const chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+              text: "Restaurants"
+            },
+            axisX: {
+              interval: 1
+            },
+            axisY: {
+              interval: 10,
+              scaleBreaks: {
+                autocalculate: true
+              }
+            },
+            data: [{
+              type: "bar",
+              dataPoints: data
+            }]
+          });
+          chart.render();
           }
         })
     </script>
