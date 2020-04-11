@@ -11,9 +11,9 @@
         <div class="header">Frontend Libraries: Charts Lab</div>
         <div class="content">
           <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+          <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
         <div class="footer">Let's eat out in the future!</div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
       </div>
     </div>
     <script>
@@ -47,8 +47,8 @@
           return Object.entries(data).map((m, n) => {
             console.log(m);
             return {
-              y: m[1].length,
               label: m[0],
+              y: m[1].length,
             };
           });
         })
@@ -76,7 +76,7 @@
               dataPoints: data
             }]
           });
-          chart.render();
+            chart.render();
           }
         })
     </script>
