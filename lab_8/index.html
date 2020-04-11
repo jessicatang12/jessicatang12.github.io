@@ -9,10 +9,8 @@
     <div class="container">
       <div class="wrapper">
         <div class="header">Frontend Libraries: Charts Lab</div>
-        <div class="content">
           <div id="chartContainer" style="height: 300px; width: 100%;"></div>
           <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        </div>
         <div class="footer">Let's eat out in the future!</div>
       </div>
     </div>
@@ -44,40 +42,31 @@
         })
         .then((data) => {
           console.log(data);
-          return Object.entries(data).map((m, n) => {
+          const newdata = Object.entries(data).map((m, n) => {
             console.log(m);
             return {
-              label: m[0],
               y: m[1].length,
+              label: m[0],
             };
           });
+          return newdata;
         })
         /* end*/
         /* chart code canvasJS */
         .then((data) => {
-          console.log(data);
-          window.onload = function () {
+          console.log('new', data);
           const chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title: {
               text: "Restaurants"
             },
-            axisX: {
-              interval: 1
-            },
-            axisY: {
-              interval: 10,
-              scaleBreaks: {
-                autocalculate: true
-              }
-            },
             data: [{
-              type: "bar",
+              type: "pie",
+              startAngle: 240,
               dataPoints: data
             }]
           });
             chart.render();
-          }
         })
     </script>
   </body>
