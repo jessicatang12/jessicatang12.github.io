@@ -66,6 +66,17 @@ h3 {
   padding: 0 25px;
 }
 
+.chartContainer {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  border: 2px dotted #444;
+  flex-grow: 2;
+  padding: 10px;
+  overflow-wrap: break-word;
+  margin: 25px 50px;
+}
+
 .activate {
   background-color: #ffc477;
   -moz-border-radius: 11px;
@@ -90,16 +101,4 @@ h3 {
 .activate:active {
   position: relative;
   top: 1px;
-}
-
-.chartContainer {
-  display: flex;
-  justify-content: center;
-  background: #fff;
-  border: 2px dotted #444;
-  flex-grow: 2;
-  flex: 0 0 200px;
-  padding: 10px;
-  overflow-wrap: break-word;
-  margin: 25px 50px;
 }
