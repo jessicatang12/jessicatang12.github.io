@@ -28,7 +28,38 @@ function processDataForFrontEnd(req, res) {
   // Note that at no point do you "return" anything from this function -
   // it instead handles returning data to your front end at line 34.
     fetch(baseURL)
-      .then((r) => r.json())
+      .then((res) => res.json())
+      .then((data) => {
+        const empty = data.filter((f) => f.geocoded_column_1);
+        const selected = empty.map((m) => ({
+          category: m.category,
+          name: m.name,
+          coordinates: m.geocoded_column_1.coordinates,
+        }));
+
+        return selected;
+      })
+      .then((data) => {
+        console.log(data);
+        return data.reduce((m, n) => {
+          if (!m[n.category]) {
+            m[n.category] = [];
+          }
+          m[n.category].push(n);
+          return m;
+        }, {});
+      })
+      .then((data) => {
+        console.log(data);
+        const newdata = Object.entries(data).map((m, n) => {
+          console.log(m);
+          return {
+            y: m[1].length,
+            label: m[0],
+          };
+        });
+        return newdata;
+      })
       .then((data) => {
         console.log(data);
         res.send({ data: data }); // here's where we return data to the front end
