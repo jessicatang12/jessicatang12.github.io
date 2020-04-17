@@ -10,16 +10,17 @@
   <div class="container">
     <div class="wrapper">
       <div class="header">Jessica Tang Lab 9</div>
-      <div class="content">
         <div id="chartContainer" style="height: 300px; width: 75%;"></div>
           <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-      </div>
       <div class="footer"></div>
     </div>
   </div>
   <script>
     fetch('/api') // Rather than fetching from PG County, we're going to fetch from our own server.
       .then(res => res.json())
+      .then(res => {
+        return res;
+      })
       .then(res => {
         // Here's where your chart code should go.
         console.log('new', res);
