@@ -29,15 +29,15 @@ function processDataForFrontEnd(req, res) {
   // it instead handles returning data to your front end at line 34.
     fetch(baseURL)
       .then((res) => res.json())
-      .then((data) => {
-        const empty = data.filter((f) => f.geocoded_column_1);
-        const selected = empty.map((m) => ({
+      .then((res) => {
+        const empty = res.filter((f) => f.geocoded_column_1);
+        const data = empty.map((m) => ({
           category: m.category,
           name: m.name,
           coordinates: m.geocoded_column_1.coordinates,
         }));
 
-        return selected;
+        return data;
       })
       .then((data) => {
         console.log(data);

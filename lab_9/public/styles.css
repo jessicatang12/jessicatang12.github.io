@@ -67,6 +67,9 @@ h3 {
 }
 
 .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #fff;
   border: 2px dotted #444;
   flex-grow: 2;
