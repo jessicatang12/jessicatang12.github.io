@@ -19,7 +19,7 @@
       .then(res => res.json())
       .then(res => {
         // Here's where your chart code should go.
-        console.log('new', data);
+        console.log('new', res);
         const chart = new CanvasJS.Chart("chartContainer", {
           animationEnabled: true,
           title: {
@@ -28,7 +28,7 @@
           data: [{
             type: "pie",
             startAngle: 240,
-            dataPoints: data
+            dataPoints: res
           }]
         });
           chart.render();
