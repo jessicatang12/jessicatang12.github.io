@@ -54,11 +54,8 @@ app
       res.json(result);
     })();
   })
-  .put((req,res) => {
-    console.log("/api put request", req.body);
-  })
-  .post((req, res) => {
-    console.log("/api post request", req.body);
+  .put((req, res) => {
+    console.log("/api pust request", req.body);
     if (!req.body.name) {
       console.log(req.body);
       res.status("418").send("something went wrong, additionally i am a teapot");
