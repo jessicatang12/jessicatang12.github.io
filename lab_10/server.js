@@ -22,18 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// async function from Lab 10_2 lecture
-async function writeUser(username, settings) {
-  const db = await open(settings);
-  await db.exec("CREATE TABLE IF NOT EXISTS user (name)");
-  await db.exec(`INSERT INTO user VALUES ("${username}")`);
-  const result = await db.each("SELECT * FROM user");
-  console.log("Expected result", result);
-  return result;
-}
-
-//end
-
 function processDataForFrontEnd(req, res) {
   const baseURL = "/api"; // Enter the URL for the data you would like to retrieve here
 
