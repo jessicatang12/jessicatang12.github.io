@@ -48,18 +48,6 @@
             target.append(br);
             target.append(`${data}`);
           });
-
-        fetch("/api", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(Object.fromEntries(formToSend)),
-        })
-        .then((data) =>data.text())
-        .then((data) => {
-          console.log(data);
-        })
       }
 
       const formBtn = document.querySelector("#formBtn");
