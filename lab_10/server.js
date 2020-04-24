@@ -54,6 +54,9 @@ app
       res.json(result);
     })();
   })
+  .put((req,res) => {
+    console.log("/api put request", req.body);
+  })
   .post((req, res) => {
     console.log("/api post request", req.body);
     if (!req.body.name) {
