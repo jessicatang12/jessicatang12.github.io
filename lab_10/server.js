@@ -63,7 +63,7 @@ app
       writeUser(req.body.name, dbSettings)
       .then((result) => {
         console.log(result);
-        res.send("your request was successful"); // simple mode
+        res.send("Your response has been submitted."); // simple mode
       })
       .catch((err) => {
         console.log(err);
