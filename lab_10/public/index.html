@@ -42,12 +42,12 @@
           body: JSON.stringify(Object.fromEntries(formToSend)),
         })
           .then((data) => data.text()) // note: we didn't send JSON, so there's no JSON to get.
-          .then((txtresponse) => {
-            console.log(txtresponse);
+          .then((data) => {
+            console.log(data);
             btn.setAttribute("disabled", true);
             const br = document.createElement("br");
             target.append(br);
-            target.append(`${txtresponse}`);
+            target.append(`${data}`);
           });
       }
 
