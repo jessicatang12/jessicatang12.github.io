@@ -55,10 +55,10 @@ app
     })();
   })
   .put((req, res) => {
-    console.log("/api pust request", req.body);
+    console.log("/api put request", req.body);
     if (!req.body.name) {
       console.log(req.body);
-      res.status("418").send("something went wrong, additionally i am a teapot");
+      res.status("418").send("Something went wrong.");
     } else {
       writeUser(req.body.name, dbSettings)
       .then((result) => {
