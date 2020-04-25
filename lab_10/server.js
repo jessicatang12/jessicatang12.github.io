@@ -56,7 +56,7 @@ app
   })
   .put((req, res) => {
     console.log("/api put request", req.body);
-    res.send("Success!");
+    res.send("Success! Your response has been submitted.");
   })
   .post((req, res) => {
     console.log("/api post request", req.body);
