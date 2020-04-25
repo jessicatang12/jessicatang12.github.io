@@ -9,6 +9,7 @@ import fetch from "node-fetch";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 import writeUser from "./libraries/writeuser";
+import writeResults from "./libraries/writeResults";
 
 const dbSettings = {
   filename: "./tmp/database.db",
@@ -54,9 +55,13 @@ app
       res.json(result);
     })();
   })
+  // from MDN web api notes
   .put((req, res) => {
     console.log("/api put request", req.body);
-    res.send("Success! Your response has been submitted.");
+    writeResults(req.body.name, req.body.zipcode, req.body.interests, dbsettings)
+    .then((data) => {
+      res.json(data);
+    })
   })
   .post((req, res) => {
     console.log("/api post request", req.body);
