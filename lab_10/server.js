@@ -56,6 +56,10 @@ app
   })
   .put((req, res) => {
     console.log("/api put request", req.body);
+    res.send("Success!");
+  })
+  .post((req, res) => {
+    console.log("/api post request", req.body);
     if (!req.body.name) {
       console.log(req.body);
       res.status("418").send("Something went wrong.");
