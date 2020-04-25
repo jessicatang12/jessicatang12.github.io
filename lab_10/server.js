@@ -58,7 +58,7 @@ app
   // from MDN web api notes
   .put((req, res) => {
     console.log("/api put request", req.body);
-    writeResults(req.body.name, req.body.zipcode, req.body.interests, dbsettings)
+    writeResults(req.body.name, req.body.zipcode, req.body.interests, dbSettings)
     .then((data) => {
       res.json(data);
     })
