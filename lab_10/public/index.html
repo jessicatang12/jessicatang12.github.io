@@ -22,6 +22,7 @@
             </textarea
             ><br />
             <button id="formBtn">Submit</button>
+            <button id="getBtn">Request GET</button>
           </form>
         </div>
       </div>
@@ -51,8 +52,22 @@
           });
       }
 
+      //based off of notes from MDN on basic fetch requests
+      function requestGet() {
+        fetch("/api")
+          .then((response) => {
+            return response.json();
+          })
+          .then((response) => {
+            console.log(response);
+          })
+      }
+
       const formBtn = document.querySelector("#formBtn");
+      const getBtn = document.querySelector("getBtn");
+
       formBtn.addEventListener("click", sendForm);
+      getBtn.addEventListener("click", requestGet);
     </script>
   </body>
 </html>
