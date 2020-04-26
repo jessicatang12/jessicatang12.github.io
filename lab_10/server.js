@@ -50,9 +50,10 @@ app
     // processDataForFrontEnd(req, res)
     (async () => {
       const db = await open(dbSettings);
-      const result = await db.all("SELECT * FROM user");
+      const result = await db.all("SELECT * FROM formResults");
       console.log("Expected result", result);
       res.json(result);
+      res.send(result);
     })();
   })
   // from MDN web api notes
@@ -61,7 +62,11 @@ app
     writeResults(req.body.name, req.body.zipcode, req.body.interests, dbSettings)
     .then((data) => {
       res.json(data);
+      res.send("Success! Your response has been submitted.");
     })
+    .catch((err) => {
+      console.log(err);
+    });
   })
   .post((req, res) => {
     console.log("/api post request", req.body);

@@ -1,3 +1,6 @@
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+
 async function writeResults(names, zipcodes, interests, dbSettings) {
   console.log(`Form data added`);
   const db = await open(dbSettings)
