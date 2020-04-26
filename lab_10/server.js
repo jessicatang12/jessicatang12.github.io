@@ -44,8 +44,20 @@ function processDataForFrontEnd(req, res) {
 // Syntax change - we don't want to repeat ourselves,
 // or we'll end up with spelling errors in our endpoints.
 //
+const success = "Success! Your response has been submitted.";
 app
   .route("/api")
+  // from MDN web api notes
+  .put((req, res) => {
+    console.log("/api put request", req.body);
+    writeResults(req.body.name, req.body.zipcode, req.body.interests, dbSettings)
+    .then((data) => {
+      res.json({data, success});
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
   .get((req, res) => {
     // processDataForFrontEnd(req, res)
     (async () => {
@@ -53,20 +65,8 @@ app
       const result = await db.all("SELECT * FROM formResults");
       console.log("Expected result", result);
       res.json(result);
-      res.send(result);
+      res.send({result:result});
     })();
-  })
-  // from MDN web api notes
-  .put((req, res) => {
-    console.log("/api put request", req.body);
-    writeResults(req.body.name, req.body.zipcode, req.body.interests, dbSettings)
-    .then((data) => {
-      res.json(data);
-      res.send("Success! Your response has been submitted.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   })
   .post((req, res) => {
     console.log("/api post request", req.body);
